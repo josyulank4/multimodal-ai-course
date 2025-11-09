@@ -1,4 +1,4 @@
-"""Capstone: the parcel system — fused decision + storm sizing (Lesson 46)."""
+"""Capstone: the parcel system — fused decision + storm sizing (Lesson 51)."""
 
 PEAK_PER_HOUR = 4200
 PER_STAGE_S = 1.8
@@ -43,12 +43,55 @@ def storm_night():
     print("oldest urgent case at midnight: 4 minutes — inside the promise")
 
 
+CASES = (
+    ("crushed corner, books", 0.82, "clear", "matches", 86),
+    ("waterlogged paperbacks", 0.77, "denied", "matches", 45),
+    ("claims the box arrived empty", 0.12, "denied", "insists damage", 240),
+)
+REVIEW_VALUE_LIMIT = 200
+
+
+def evidence(case):
+    name, photo, form, voice, value = case
+    print(f"evidence: {name} — photo damage {photo:.2f}, form {form}, voice {voice}, claim ${value}")
+
+
+def fuse(case):
+    name, photo, form, voice, value = case
+    if value > REVIEW_VALUE_LIMIT:
+        return "ESCALATE — value above $200 buys a human decision"
+    if photo >= 0.70 and form == "clear" and voice == "matches":
+        return "APPROVE — senses agree, damage confirmed"
+    if photo < 0.30 and form == "denied":
+        return "ESCALATE — senses conflict: photo clear, form denied, voice insists"
+    return "ESCALATE — human confirms the fused evidence"
+
+
+def review():
+    print("capstone review: three cases, fused evidence, one standard")
+    approved = escalated = 0
+    for case in CASES:
+        evidence(case)
+        outcome = fuse(case)
+        print(f"review: {case[0]} -> {outcome}")
+        if outcome.startswith("APPROVE"):
+            approved += 1
+        else:
+            escalated += 1
+    print(f"review outcome: {approved} approved on evidence, {escalated} escalated to humans")
+    print("review gate: whole-system gate PASS — agreement and slices inside thresholds")
+    print("review cost: closed at $0.0111 per resolved case, first month inside the band")
+    print("review rollout: shadow complete, canary senses live, widening on evidence")
+    print("blockers: none — every escalation above is the design working, not failing")
+
+
 def main():
     verdict()
     sizing(PEAK_PER_HOUR, PER_STAGE_S)
     headroom(PEAK_PER_HOUR)
     degrade()
     storm_night()
+    review()
     print("verdict: SHIP — gate passed, cost model closed, rollout staged")
     print("parcelcapstone demo complete")
 
