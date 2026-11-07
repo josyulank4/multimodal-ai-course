@@ -1,4 +1,4 @@
-"""Voice-loop latency budgeter: per-stage budgets vs turn limit (Lesson 20)."""
+"""Voice-loop latency budgeter: per-stage budgets vs turn limit (Lesson 14)."""
 LIMIT_MS = 1200
 STAGES = [("capture+vad", 120), ("streaming asr", 300), ("llm first token", 450), ("tts first audio", 250), ("network jitter", 60)]
 def total(stages): return sum(ms for _, ms in stages)
