@@ -13,16 +13,16 @@ Expected final line: `OVERALL: PASS`.
 ## Packages (one per DEMO lesson)
 | Package | Lesson | What it shows |
 |---|---|---|
-| visiontriage | 16 | Damage-triage cascade: cheap first, VLM on doubt |
-| voiceloop | 20 | Voice-loop latency budget vs the turn-taking limit |
-| docintel | 24 | Invoice extraction with schema + field confidence |
-| crossmodal | 28 | Cross-modal retrieval in one shared space |
-| fusiongate | 32 | Weighted fusion with a disagreement gate |
-| lookagent | 36 | Perceive-ground-act-verify agent loop |
-| mediacost | 40 | Cost per resolved outcome for a media queue |
-| senseeval | 44 | Per-slice evaluation harness + release gate |
-| sensesafe | 48 | Media-is-data safety filter for hostile uploads |
-| parcelcapstone | 50/51 | The parcel system, end to end + storm sizing |
+| visiontriage | 10 | Damage-triage cascade: cheap first, VLM on doubt |
+| voiceloop | 14 | Voice-loop latency budget vs the turn-taking limit |
+| docintel | 18 | Invoice extraction with schema + field confidence |
+| crossmodal | 22 | Cross-modal retrieval in one shared space |
+| fusiongate | 26 | Weighted fusion with a disagreement gate |
+| lookagent | 30 | Perceive-ground-act-verify agent loop |
+| mediacost | 34 | Cost per resolved outcome for a media queue |
+| senseeval | 38 | Per-slice evaluation harness + release gate |
+| sensesafe | 42 | Media-is-data safety filter for hostile uploads |
+| parcelcapstone | 46/51 | The parcel system, end to end + storm sizing |
 
 ## Lesson tags
 Each DEMO lesson is tagged in this repo: `lXX-start` (code before the lesson's

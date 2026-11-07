@@ -1,4 +1,4 @@
-"""Damage-triage cascade: cheap scorer first, VLM only on doubt (Lesson 16)."""
+"""Damage-triage cascade: cheap scorer first, VLM only on doubt (Lesson 10)."""
 CASES = [
     ("parcel-01", 0.97, "intact"), ("parcel-02", 0.93, "intact"),
     ("parcel-03", 0.61, "crushed"), ("parcel-04", 0.55, "crushed"),
@@ -13,6 +13,6 @@ def main():
     for pid, score, label in CASES:
         r = route(score); routes[r] = routes.get(r, 0) + 1
         print(f"{pid}: score {score:.2f} label {label} -> {r}")
-    print(f"cascade: {routes['auto-decide']}/6 auto-decided, {routes['vlm-review']} escalated to vlm, {routes['human-review']} to human")
+    print(f"cascade: {routes.get('auto-decide', 0)}/{len(CASES)} auto-decided, {routes.get('vlm-review', 0)} escalated to vlm, {routes.get('human-review', 0)} to human")
     print("visiontriage demo complete")
 if __name__ == "__main__": main()
