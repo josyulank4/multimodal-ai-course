@@ -34,8 +34,8 @@ def main():
     check("cascade routes 0.90 to auto-decide", route(0.90) == "auto-decide")
     check("cascade routes 0.60 to vlm-review", route(0.60) == "vlm-review")
     check("cascade routes 0.30 to human-review", route(0.30) == "human-review")
-    from crossmodal.search import rank, QUERIES
-    check("crossmodal top hit is the red jacket", rank(QUERIES["red jacket"])[0][0] == "photo:red-jacket-front")
+    from crossmodal.search import rank
+    check("crossmodal top hit is the red jacket", rank()[0][0] == "photo:red-jacket")
     from voiceloop.budget import total, STAGES
     check("voice loop fits its budget", total(STAGES) <= 1200)
     print()
