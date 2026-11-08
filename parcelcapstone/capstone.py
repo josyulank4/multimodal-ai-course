@@ -1,4 +1,4 @@
-"""Capstone: the parcel system — fused decision + storm sizing (Lessons 46, 51)."""
+"""Capstone: the parcel system — fused decision + storm sizing (Lesson 51)."""
 
 PEAK_PER_HOUR = 4200
 PER_STAGE_S = 1.8
